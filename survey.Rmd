@@ -57,5 +57,5 @@ ggplot(survey_data, aes(x = smu_total, y = obi_total)) +
        x = "Problematic Social Media Use (SMU)",
        y = "Online Buying Impulsiveness (OBI)") +
   theme_minimal()
----
+```
 
