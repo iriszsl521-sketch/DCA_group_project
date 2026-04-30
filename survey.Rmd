@@ -47,5 +47,16 @@ cor_result <- cor.test(survey_data$smu_total, survey_data$obi_total, method = "p
 
 cor_result
 ```
+```{r scatterplot}
+# Load package
+library(ggplot2)
 
+# Draw scatter plot
+ggplot(survey_data, aes(x = smu_total, y = obi_total)) +
+  geom_point(color = "skyblue", size = 2, alpha = 0.6) + 
+  geom_smooth(method = "lm", color = "darkblue", se = TRUE) +  
+  labs(title = "Correlation between Addictive Social Media Use and Impulsive Buying",
+       x = "Problematic Social Media Use (SMU)",
+       y = "Online Buying Impulsiveness (OBI)") +
+  theme_minimal()
 
