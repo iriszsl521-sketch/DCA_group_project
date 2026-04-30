@@ -1,0 +1,19 @@
+---
+title: "survey on psmu&obi"
+output: html_document
+date: "2026-04-30"
+---
+
+```{r gender}
+library(readxl)
+PSMU_OBI_cleaned <- read_excel("~/Desktop/PSMU_OBI/PSMU_OBI_cleaned.xlsx")
+survey_data <- read_excel("../PSMU_OBI_cleaned.xlsx")
+View(PSMU_OBI_cleaned)
+gender_col <- "2. Which of the following best describes your gender? /以下哪项最符合您的性别？"
+gender_table <- table(survey_data[[gender_col]])
+gender_percent <- round(prop.table(gender_table) * 100, 2)
+gender_table
+gender_percent
+```
+
+
