@@ -15,5 +15,37 @@ gender_percent <- round(prop.table(gender_table) * 100, 2)
 gender_table
 gender_percent
 ```
+```{r age}
+age_col <- "1. What is your age? /您的年龄是？"
+age_table <- table(survey_data[[age_col]])
+age_percent <- round(prop.table(age_table) * 100, 2)
+age_table
+age_percent
+```
+
+```{r}
+library(dplyr)
+survey_data %>%
+  summarise(
+    smu_mean = mean(smu_total, na.rm = TRUE),
+    smu_sd = sd(smu_total, na.rm = TRUE),
+    obi_mean = mean(obi_total, na.rm = TRUE),
+    obi_sd = sd(obi_total, na.rm = TRUE)
+  )
+```
+
+
+
+```{r}
+cor_result <- cor.test(survey_data$smu_total, survey_data$obi_total, method = "spearman")
+
+cor_result
+```
+
+```{r}
+cor_result <- cor.test(survey_data$smu_total, survey_data$obi_total, method = "pearson")
+
+cor_result
+```
 
 
